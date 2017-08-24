@@ -1,0 +1,24 @@
+{% extends "layouts/default.html" %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+<div class="expanded collapse row">
+  <div class="medium-2 columns">
+    <ul class="menu vertical expanded">
+      <li class="{% if not project-id %} active {% endif %}">
+        <a href="/admin">New Project</a>
+      </li>
+      {% for proj in projects %}
+      <li class="{% ifequal proj.id project-id %} active {% endifequal %}">
+        <a href="/admin/{{ proj.id }}">{{ proj.name }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="medium-10 columns">
+    <br>
+    {% include "partials/project_form.html" %}
+    </div>
+  </div>
+</div>
+{% endblock %}

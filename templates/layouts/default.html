@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="/css/foundation.css">
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/foundation-icons.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="top-bar black">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">Joe Kennedy</li>
+        <li><a href="/employment">Work History</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/libraries">Libraries</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right top-bar-right-buttons">
+      <ul class="menu">
+        <li>
+          <a class="button secondary fi-mail extra-large" href="mailto:joseph.stephen.kennedy@gmail.com" target="_blank"></a>
+        </li>
+        <li>
+          <a class="button secondary fi-social-github extra-large" href="https://github.com/JoeKennedy" target="_blank"></a>
+        </li>
+        <li>
+          <a class="button secondary fi-social-stack-overflow extra-large" href="http://stackoverflow.com/cv/jkennedy" target="_blank"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+  <script src="/js/vendor/jquery.js"></script>
+  <script src="/js/vendor/what-input.js"></script>
+  <script src="/js/vendor/foundation.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

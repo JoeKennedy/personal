@@ -1,0 +1,31 @@
+<div class="row link-row">
+  <input class="link-field" type="hidden" id="link_id_{{ link.order }}" name="link[][id]" value="{{ link.id }}">
+  <input class="link-field link-order-field" type="hidden" id="link_order_{{ link.order }}" name="link[][order]" value="{{ link.order }}">
+
+  <div class="large-2 medium-6 columns">
+    <select class="link-field" id="link_type_{{ link.order }}" name="link[][type]">
+      <option value="" {% if not link.id %}selected{% endif %} disabled>-- Type --</option>
+      {% for (label . value) in link-type-options %}
+      <option value={{ value }} {% ifequal value link.link-type %}selected{% endifequal %}>
+        {{ label }}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="large-3 medium-6 columns">
+    <input type="text" class="link-field" id="link_name_{{ link.order }}" name="link[][name]" placeholder="Name" value="{{ link.name }}"/>
+  </div>
+
+  <div class="large-5 medium-9 columns">
+    <input type="text" class="link-field" id="link_url_{{ link.order }}" name="link[][url]" placeholder="Url" value="{{ link.url }}"/>
+  </div>
+
+  <div class="large-2 medium-3 columns">
+    <div class="button-group expanded">
+      <button type="button" class="button success fi-plus add-link-button" title="Add new link"></button>
+      <button type="button" class="button primary fi-link copy-link-button" title="Copy link"></button>
+      <button type="button" class="button alert fi-trash delete-link-button" title="Delete link"></button>
+    </div>
+  </div>
+</div>

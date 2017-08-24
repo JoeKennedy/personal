@@ -1,0 +1,66 @@
+<form action="/admin{% if project-id %}/{{ project-id }}{% endif %}">
+
+  <div class="row">
+    <div class="small-12 columns">
+      <h4>
+        {% if project-name %}
+          {{ project-name }}
+        {% else %}
+          New Project
+        {% endif %}
+      </h4>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-6 columns">
+      <label for="project_name">
+        Name
+        <input type="text" id="project_name" name="project[name]" value="{{ project-name }}" />
+      </label>
+
+      <label for="project_type">
+        Type
+        <select id="project_type" name="project[type]">
+          {% if not project-type %}
+          <option value="" selected disabled>-- Select --</option>
+          {% endif %}
+          {% for (label . value) in project-type-options %}
+          <option value={{ value }} {% ifequal value project-type %}selected{% endifequal %}>
+            {{ label }}
+          </option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+
+    <div class="medium-6 columns">
+      <label for="project_description">
+        Description
+        <textarea id="project_description" name="project[description]" rows="3">{{ project-description }}</textarea>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <br>
+      <h5>Links</h5>
+      <hr>
+    </div>
+  </div>
+
+  {% for link in links %}
+    {% include "partials/link_form.html" %}
+  {% endfor %}
+
+  {% include "partials/link_form.html" %}
+
+  <div class="row">
+    <div class="small-12 columns">
+      <hr>
+      <button type="submit" class="button default">Save</button>
+    </div>
+  </div>
+</form>
